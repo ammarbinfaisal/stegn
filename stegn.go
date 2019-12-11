@@ -165,8 +165,13 @@ func Encode(path string, text string) {
 		fmt.Println("Error: File could not be opened")
 		os.Exit(1)
 	}
+
 	err = png.Encode(file, m)
-	fmt.Println(err)
+
+	if err != nil {
+		fmt.Println("Error: PNG could not be encoded")
+		os.Exit(1)
+	}
 }
 
 func Decode(path string) string {
